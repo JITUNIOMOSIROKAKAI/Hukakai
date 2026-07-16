@@ -1,0 +1,506 @@
+canvas {
+    position: absolute;
+    top: 30px;
+}
+
+.a,
+.b {
+    z-index: 3;
+    left: 0px;
+}
+
+.options {
+    left: 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#saitenjun pre{
+    position:relative;
+    overflow:scroll;
+    top:2em;
+    font-weight:170;
+    height:calc(100% - 3em - 70px);
+}
+.preview {
+    overflow: scroll;
+    font-weight: 170;
+}
+
+div[popover],
+div[popover] * {
+    z-index: 99;
+}
+
+div.number {
+    display: inline-block;
+}
+
+div.number::before,
+div[title]::before {
+    content: attr(title)"";
+}
+
+input[type="number"] {
+
+    border: #444 solid 2px;
+    box-sizing: border-box;
+    width: 3em;
+    height: 2em;
+    padding: 0.35em 0px;
+    left: 0px;
+}
+
+canvas#notes {
+    z-index: 2;
+}
+
+input[type="text"] {
+    display: block;
+}
+
+dialog>div {
+    width: calc (100% - 5px);
+    height: calc(100% - 20px);
+    top: 20px;
+}
+
+dialog::after,#saitenjun::after {
+    position: absolute;
+    display: block;
+    top: 0px;
+    width: 100%;
+    height: 1.8em;
+    padding: 0.4em 0;
+    content: "" attr(title);
+    font-weight: 400;
+    background-color: #ddd;
+    border: black solid;
+    border-width: 0px 0px 2px 0px;
+}
+
+.options:not(.notopened) * {
+    display: auto;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 200px;
+    height: 12px;
+    border: 1px solid #333333;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #333333;
+    border-radius: 9999px;
+    background: #06b6d4;
+    box-shadow: none;
+}
+
+.select {
+    position: fixed;
+    display: inline-block;
+    background-color: auto;
+    border: 1px #444 solid;
+}
+
+.options.notopened * {
+    display: none;
+}
+
+canvas#barline {
+    z-index: 1;
+}
+
+#alert {
+    position: absolute;
+    z-index: 99;
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+#alert input[type="checkbox"] {
+    display: none;
+}
+
+#alert:has(input[type="checkbox"]:checked) {
+    display: block;
+}
+
+#alert:not(:has(input[type="checkbox"]:checked)) {
+    display: none;
+}
+#pluginpopover input[type="checkbox"] {
+    display: none;
+}
+
+#pluginpopover:has(input[type="checkbox"]:checked) {
+    display: block;
+}
+
+#pluginpopover:not(:has(input[type="checkbox"]:checked)) {
+    display: none;
+}
+.plugin>input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    vertical-align: -5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="checkbox"]:checked:before {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    transform: rotate(50deg);
+    width: 5px;
+    height: 10px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    content: '';
+}
+
+.plugin:has(>input[type="checkbox"]:checked) {
+    display: block;
+}
+
+.plugin:not(:has(>input[type="checkbox"]:checked)) {
+    display: none;
+}
+
+#alert::after {
+    content: "アラート";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: calc(1em + 3px);
+    top: 0px;
+    left: 0px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #444;
+    color: white;
+}
+
+html,
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#right {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+}
+
+p {
+    position: absolute;
+    top: 410px;
+}
+
+.buttons button {
+    left: 0px;
+    width: 100%;
+
+}
+
+div#saitenjun {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color:#999;
+}
+div#saitenjun:not(:has(input[type="checkbox"]:checked)){
+    display:none;
+}
+div#saitenjun:has(input[type="checkbox"]:checked){
+    display:block;
+}
+div#saitenjun>input[type="checkbox"]{
+    display:none;
+}
+div#hyouka2 {
+    width: 100%;
+    height: 70%;
+    border: 1px solid black;
+}
+
+div#hyouka2 textarea {
+    position: relative;
+    border: 1px solid black;
+    bottom: 0px;
+    width: 100%;
+    height: 80%;
+}
+
+div#hyouka2 #uebar {
+    width: 100%;
+    height: 20%;
+    background-color: #bbb;
+}
+
+div#hyouka {
+    height: 100%;
+    width: 50%;
+    overflow: scroll;
+    display: flex;
+    flex-flow: column;
+}
+.child {
+    position: relative;
+    left: 30px;
+    overflow-wrap: anywhere;
+    font-size: 20px;
+}
+
+.child:not(:has(input[type="checkbox"]:checked))>.child {
+    display: none;
+}
+
+.child:has(input[type="checkbox"]:checked)>.child {
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+}
+
+.child>input {
+    display: none;
+}
+
+.buttons {
+    z-index: 40;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin: 0px 20px;
+    width: 100px;
+    top: 0px;
+    left: 0px;
+    background-color: #aaa;
+}
+
+.blue {
+    color: aqua;
+}
+
+.red {
+    color: #fa4736;
+}
+
+.yellow {
+    color: #ffff00;
+}
+
+.orange {
+    color: orange;
+}
+
+textarea,
+#editor {
+    position: absolute;
+    left: 2px;
+    top: 0px;
+    resize: none;
+    height: 100%;
+    width: 50%;
+    border: solid black 2px;
+}
+
+body {
+    display: fixed;
+    overflow: hidden;
+}
+
+#filepick:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    display: block;
+    background-color: #aaa;
+    width: 100%;
+    height: 20px;
+}
+
+#buttons {
+    position: absolute;
+    display: block;
+    left: 0px;
+    overflow: scroll;
+}
+
+button {
+    z-index: 20;
+}
+
+#buttons button {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    border: solid black 2px;
+    width: 80vw;
+    height: 3em;
+    z-index: 30;
+    left: -2px;
+    margin: 0 0 -2px 0;
+    text-align: left;
+}
+
+#bottombar button:disabled {
+    background-color: #999;
+}
+
+#pluginpopover div button {
+    font-size: 15px;
+    border: solid #000;
+    border-width: 0 0 1px 0;
+}
+
+#filepick #bottombar {
+    position: absolute;
+    display: block;
+    background-color: #444;
+    z-index: 100;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+    transform: translateY(-100%);
+}
+#saitenjun #bottombar {
+    position: absolute;
+    display: block;
+    background-color: #444;
+    z-index: 100;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+    transform: translateY(-100%);
+}
+#bottombar button {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    font-size: 13px;
+    left: calc(100% - 15em - 20px);
+    padding: 0.2em 20px;
+    background-color: #eee;
+    border-radius: 2px;
+}
+
+#bottombar button:hover {
+    color: white;
+}
+
+dialog {
+    z-index: 0;
+    position: absolute;
+    padding: 20px 0 0 0;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border: black solid 2px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#pluginpopover {
+    z-index: 100;
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-color: #00000000;
+    overflow: scroll;
+    display: flex;
+    flex-flow: column;
+	top:50%;
+	left:50%;
+    transform: translate(-50%, -50%);
+}
+
+#pluginpopover{
+    position: absolute;
+    flex-flow: column;
+    overflow: scroll;
+    z-index: 100;
+    background-color: white;
+    border: solid 2px black;
+}
+
+#pluginpopover #bottombar {
+    position: fixed;
+    display: block;
+    background-color: #444;
+    z-index: 100;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+}
+dialog>label {
+    width: 100%;
+}
+
+#plugins button {
+    display: block;
+    width: 100%;
+    height: 1em;
+    background-color: white;
+    border: #999 1px solid;
+    color: black;
+}
+
+#note,
+#font {
+    display: fixed;
+    position: absolute;
+    top: 2000px;
+}
+
+#combo {
+    z-index: 11;
+}
+
+canvas {
+    position: absolute;
+    left: 0px;
+}
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 170;
+}

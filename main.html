@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css" />
+    <link rel="stylesheet" href="css.css" />
+</head>
+
+<body>
+    <div id="saitenjun" title="採点順位">
+        <input type="checkbox" id="saiten" />
+        <pre></pre>
+        <div id="bottombar">
+            <label onclick="">
+                <button onclick="$('#saiten')[0].checked=false">閉じる</button>
+            </label>
+        </div>
+    </div>
+    <div id="right">
+        <div id="hyouka2" title="">
+            <div id="uebar">
+                <label>評価対象外:<input type="checkbox" name="notgroup"></label>
+                <label>お気に入り:<input type="checkbox" name="fav" /></label>
+                <label>点数:<input type="number" name="point"></label>
+				<label for="pluginclose">オプション</label>
+                <label id="average">平均:</label>
+                <label id="sorted" for="saiten">採点順位:</label>
+            </div>
+            <textarea placeholder="感想を記入" name="kansou"></textarea>
+        </div>
+        <div class="buttons" style="position:absolute;width:100%;height:20%;top:100%;transform:translateY(-100%);">
+            <button class="" onclick="savesuru()"
+                style="background-color:#eee;border: 2px solid black;z-index:10;">ローカルストレージに保存する</button>
+            <button class="" id="open" onclick="$('dialog')[0].showModal()"
+                style="background-color:#eee;border: 2px solid black;z-index:10;">ローカルストレージから開く</button>
+            <button class="" id="open" onclick="fromTxT()"
+                style="background-color:#eee;border: 2px solid black;z-index:10;">テキストファイルから開く</button>
+            <button class="" id="open" onclick="createsheet()"
+                style="background-color:#eee;border: 2px solid black;z-index:10;">評価を新規作成する</button>
+        </div>
+    </div>
+    <dialog id="filepick">
+        <div id="bottombar">
+            <button onclick="$('dialog')[0].close();">キャンセル</button>
+            <button id="enter" onclick="$('dialog')[0].close();">確定</button>
+        </div>
+    </dialog>
+	<div title="オプション" id="pluginpopover">
+		<input type="checkbox" id="pluginclose">
+		<div><div title="平均点制限:" class="number"></div><div title="〜" class="number"></div></div>
+		<div title="同点個数制限:" class="number"></div>
+        <div id="bottombar">
+            <button id="enter" onclick="$('#pluginclose')[0].click();">閉じる</button>
+        </div>
+	</div>
+    <div id="hyouka">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.2/decimal.min.js"></script>
+    <script src="encoding.min.js"></script>
+    <script src="main.js"></script>
+    <script src="save.js"></script>
+    <script src="read.js"></script>
+</body>
+
+</html>
