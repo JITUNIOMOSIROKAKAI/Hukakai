@@ -100,7 +100,7 @@ function open(isload) {
 }
 async function toText() {
     const a = new Blob([JSON.stringify(data)], { type: "text/plain" });
-    $(`<a href="${URL.createObjectURL(a)}" download="${data.title}.txt" />`)[0].click();
+    $(`<a href="${URL.createObjectURL(a)}" download="${data.title}.tjasheet" />`)[0].click();
 }
 function toText2() {
     let text = "", tukauyatu = Object.entries(data.hontai).map(val => { const x = val[1]; return x?.name == void 0 ? Object.entries(x).map(y => y[1]) : x }).flat(2).toReversed();
@@ -119,15 +119,14 @@ function toText2() {
     $(`<a href="${URL.createObjectURL(a)}" download="${data.title}.txt" />`)[0].click();
 }
 async function fromTxT() {
-    const [filehandle] = await showOpenFilePicker(),
-        reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = (e) => {
         data = new Function(`return ${e.target.result}`)();
         showsheet(data);
     }
-    console.log(filehandle);
-    reader.readAsText(await filehandle.getFile());
+    reader.readAsText($("input[type='file']")[0].files[0]);
 }
+$("input[type='file']").on("change",fromTxT);
 class savedata {
     constructor(handle, ogg) {
         this.handle = handle;
