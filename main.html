@@ -36,7 +36,7 @@
                 style="background-color:#eee;border: 2px solid black;z-index:10;">ローカルストレージに保存する</button>
             <button class="" id="open" onclick="$('dialog')[0].showModal()"
                 style="background-color:#eee;border: 2px solid black;z-index:10;">ローカルストレージから開く</button>
-            <button class="" id="open" onclick="fromTxT()"
+            <button class="" id="open" onclick="$("input[type='file']")[0].click();fromTxT()"
                 style="background-color:#eee;border: 2px solid black;z-index:10;">テキストファイルから開く</button>
             <button class="" id="open" onclick="createsheet()"
                 style="background-color:#eee;border: 2px solid black;z-index:10;">評価を新規作成する</button>
@@ -66,6 +66,7 @@
     <script src="main.js"></script>
     <script src="save.js"></script>
     <script src="read.js"></script>
+	<input type="file" accept=".txt"></input>
 </body>
 
 </html>
